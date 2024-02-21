@@ -23,7 +23,6 @@ const RPC = () => {
             dispatch(
                 changeStatus({ id: sessionRef.current.id, status: "offline" })
             );
-            sessionStorage.removeItem("id");
             console.log("beforeunload event triggeredd..");
 
             return undefined;
@@ -31,8 +30,14 @@ const RPC = () => {
     }, []);
 
     useEffect(() => {
+        if (!sessionId) return;
+        dispatch(changeStatus({ id: sessionId, status: "online" }));
+    }, [sessionId]);
+
+    useEffect(() => {
+        if (!session) return;
         sessionRef.current = session;
-    }, [session]);
+    }, [session, sessionId]);
 
     return (
         <>
