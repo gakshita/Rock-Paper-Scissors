@@ -1,5 +1,6 @@
 import { createSlice, current } from "@reduxjs/toolkit";
 import { PlayerType } from "../types";
+import { STATUS } from "../constants";
 
 const initialState: PlayerType[] = [];
 
@@ -13,7 +14,7 @@ const playerSlice = createSlice({
             let player: PlayerType = {
                 id: action.payload.id,
                 name: action.payload.name,
-                status: "online",
+                status: STATUS.online,
                 matches: 0,
                 wins: 0,
                 waitingList: [],
@@ -28,13 +29,10 @@ const playerSlice = createSlice({
             let player = state.players.find(
                 (player) => player.id === action.payload.id
             );
-            let index = state.players.findIndex(
-                (player) => player.id === action.payload.id
-            );
             if (player) {
                 player.status = action.payload.status;
             }
-            console.log(player, index, action.payload.status);
+            console.log("updated state", current(state.players));
         },
         updateScore: (state, action) => {
             console.log(
@@ -60,6 +58,7 @@ const playerSlice = createSlice({
                     opponent.wins++;
                 }
             }
+            console.log("updated state", current(state.players));
         },
         requestGame: (state, action) => {
             console.log(

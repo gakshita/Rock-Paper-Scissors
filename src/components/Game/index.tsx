@@ -31,8 +31,6 @@ const Waiting = () => {
 };
 
 const Option = ({ src, color, option, handleOnClick }: OptionProps) => {
-    console.log({ option });
-
     return (
         <div
             className={`circle ${color}`}
@@ -180,20 +178,19 @@ const Game = () => {
     const { sessionPlayer, getOpponent } = usePlayer();
     const dispatch = useDispatch();
 
-    console.log({ sessionPlayer });
-
     const getGameState = () => {
         if (sessionPlayer.opponent) {
+            let opponent = getOpponent(sessionPlayer.opponent);
             return sessionPlayer.choice ? (
                 <Result
                     sessionPlayer={sessionPlayer}
-                    opponent={getOpponent(sessionPlayer.opponent)}
+                    opponent={opponent}
                     dispatch={dispatch}
                 />
             ) : (
                 <Choosing
                     sessionPlayer={sessionPlayer}
-                    opponent={getOpponent(sessionPlayer.opponent)}
+                    opponent={opponent}
                     dispatch={dispatch}
                 />
             );

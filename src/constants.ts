@@ -3,3 +3,8 @@ export const OPTIONS = {
     paper: "paper",
     scissors: "scissors"
 };
+
+export const STATUS = {
+    offine: "offline",
+    online: "online"
+};

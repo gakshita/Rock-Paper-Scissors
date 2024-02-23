@@ -15,7 +15,7 @@ const Leaderboard = () => {
         );
         return leaderboard;
     };
-    console.log(getLeaderboard());
+
     return (
         <LeaderStyles>
             <table>
