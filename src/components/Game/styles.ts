@@ -3,11 +3,14 @@ const GameStyles = styled.div`
     border: 1px solid ${({ theme }) => theme.color.borderColor};
     border-radius: 40px;
     padding: 30px 40px;
-    width: 100%;
     flex: 1;
-    min-height: 500px;
+    min-height: 520px;
     display: flex;
     flex-direction: column;
+
+    @media only screen and (min-width: 900px) {
+        width: 100%;
+    }
 
     .center {
         display: flex;
@@ -47,6 +50,7 @@ const GameStyles = styled.div`
     .options {
         max-width: 350px;
         flex-wrap: wrap;
+        margin-top: 20px;
     }
     .options .circle,
     .result .circle {
@@ -105,6 +109,7 @@ const GameStyles = styled.div`
         color: ${({ theme }) => theme.color.red};
     }
     .choices {
+        flex-wrap: wrap;
         margin-bottom: 40px;
     }
 `;

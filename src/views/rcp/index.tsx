@@ -12,14 +12,16 @@ const RPC = () => {
             {sessionId ? (
                 <Container>
                     <h2> {session.name}'s Session</h2>
-                    <div className="flex">
+                    <div className="top-container">
                         <Game />
                         <Lobby />
                     </div>
                     <Leaderboard />
                 </Container>
             ) : (
+                // <Container>
                 <Login />
+                // </Container>
             )}
         </>
     );

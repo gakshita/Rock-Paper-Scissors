@@ -2,13 +2,15 @@ import { styled } from "styled-components";
 const Container = styled.div`
     border: 1px solid ${({ theme }) => theme.color.borderColor};
     border-radius: 40px;
-    width: 100%;
     padding: 10px 15px;
-    width: 300px;
     font-size: 1.2rem;
     padding: 30px 40px;
     display: flex;
     flex-direction: column;
+    min-height: 200px;
+    @media only screen and (min-width: 900px) {
+        width: 300px;
+    }
 
     .players {
         display: flex;

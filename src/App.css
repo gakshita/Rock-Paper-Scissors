@@ -4,6 +4,17 @@
     padding: 2rem;
     text-align: center;
 }
+@media only screen and (max-width: 1200px) {
+    #root {
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    #root {
+        width: 92%;
+        padding: 0;
+    }
+}
 
 * {
     letter-spacing: 2px;

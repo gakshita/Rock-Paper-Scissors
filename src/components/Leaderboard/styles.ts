@@ -3,7 +3,12 @@ const LeaderStyles = styled.div`
     border: 1px solid ${({ theme }) => theme.color.borderColor};
     border-radius: 40px;
     min-height: 300px;
-    // padding: 30px 40px;
+    width: 100%;
+
+    @media only screen and (max-width: 600px) {
+        overflow-x: scroll;
+        // width: 82vw;
+    }
 
     table {
         width: 100%;
