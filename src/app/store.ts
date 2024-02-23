@@ -26,7 +26,7 @@ export const store = configureStore({
             playersReducer
         )
     },
-    middleware: (getDefaultMiddleware) =>
+    middleware: (getDefaultMiddleware): any =>
         getDefaultMiddleware({
             serializableCheck: {
                 ignoredActions: [

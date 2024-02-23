@@ -8,3 +8,9 @@
 * {
     letter-spacing: 2px;
 }
+h2 {
+    text-align: start;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+}

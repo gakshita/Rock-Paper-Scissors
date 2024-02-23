@@ -1,54 +1,23 @@
-import { useEffect, useRef, useState } from "react";
 import Login from "../../components/Login";
-
-import Breadcrumbs from "../../components/Breadcrumbs";
 import Lobby from "../../components/Lobby";
 import Game from "../../components/Game";
 import Leaderboard from "../../components/Leaderboard";
-import { useDispatch, useSelector } from "react-redux";
-import { changeStatus, selectPlayer } from "../../app/playerSlice";
+import { Container } from "./styles";
+import useRcp from "./useRcp";
 
 const RPC = () => {
-    const [isLogin, setIsLogin] = useState(false);
-    const sessionId = sessionStorage.getItem("id");
-    const session = useSelector((state) =>
-        selectPlayer(state, sessionId || "")
-    );
-
-    const sessionRef = useRef(session);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        window.onbeforeunload = function () {
-            dispatch(
-                changeStatus({ id: sessionRef.current.id, status: "offline" })
-            );
-            console.log("beforeunload event triggeredd..");
-
-            return undefined;
-        };
-    }, []);
-
-    useEffect(() => {
-        if (!sessionId) return;
-        dispatch(changeStatus({ id: sessionId, status: "online" }));
-    }, [sessionId]);
-
-    useEffect(() => {
-        if (!session) return;
-        sessionRef.current = session;
-    }, [session, sessionId]);
-
+    const { setIsLogin, sessionId, session } = useRcp();
     return (
         <>
             {sessionId ? (
-                <div>
-                    {session.name}
-                    <Breadcrumbs />
-                    <Lobby />
-                    <Game />
+                <Container>
+                    <h2> {session.name}'s Session</h2>
+                    <div className="flex">
+                        <Game />
+                        <Lobby />
+                    </div>
                     <Leaderboard />
-                </div>
+                </Container>
             ) : (
                 <Login setIsLogin={setIsLogin} />
             )}

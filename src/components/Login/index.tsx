@@ -4,10 +4,8 @@ import { Container } from "./styles";
 import { useDispatch } from "react-redux";
 import { addPlayer } from "../../app/playerSlice";
 import { v4 as uuidv4 } from "uuid";
+import { LoginProps } from "./types";
 
-type LoginProps = {
-    setIsLogin: (value: boolean) => void;
-};
 const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
     const [name, setName] = useState("");
     const dispatch = useDispatch();
