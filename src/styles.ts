@@ -37,7 +37,7 @@ const SecondaryButton = styled.button`
 const StyledInput = styled.input`
     background-color: transparent;
     outline: none;
-    border: 2px solid white;
+    border-color: ${({ theme }) => theme.color.borderColor};
     padding: 10px 15px;
     border-radius: 10px;
     font-size: 1.2rem;

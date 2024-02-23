@@ -24,6 +24,7 @@ const Login = () => {
             <StyledInput
                 value={name}
                 required
+                placeholder="Enter your name"
                 onChange={(e) => setName(e.target.value)}
             ></StyledInput>
             <PrimaryButton>Login</PrimaryButton>
