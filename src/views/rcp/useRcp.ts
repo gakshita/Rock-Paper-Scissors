@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { changeStatus, endGame } from "../../app/playerSlice";
 import usePlayer from "../../hooks/usePlayer";
 
 const useRcp = () => {
-    const [isLogin, setIsLogin] = useState(false);
     const { sessionPlayer } = usePlayer();
     const sessionId = sessionPlayer ? sessionPlayer.id : "";
 
@@ -40,7 +39,7 @@ const useRcp = () => {
         sessionRef.current = sessionPlayer;
     }, [sessionPlayer, sessionId]);
 
-    return { setIsLogin, sessionId, session: sessionPlayer };
+    return { sessionId, session: sessionPlayer };
 };
 
 export default useRcp;

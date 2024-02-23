@@ -6,7 +6,7 @@ import { Container } from "./styles";
 import useRcp from "./useRcp";
 
 const RPC = () => {
-    const { setIsLogin, sessionId, session } = useRcp();
+    const { sessionId, session } = useRcp();
     return (
         <>
             {sessionId ? (
@@ -19,7 +19,7 @@ const RPC = () => {
                     <Leaderboard />
                 </Container>
             ) : (
-                <Login setIsLogin={setIsLogin} />
+                <Login />
             )}
         </>
     );

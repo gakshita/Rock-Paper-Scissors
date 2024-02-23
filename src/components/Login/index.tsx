@@ -4,9 +4,8 @@ import { Container } from "./styles";
 import { useDispatch } from "react-redux";
 import { addPlayer } from "../../app/playerSlice";
 import { v4 as uuidv4 } from "uuid";
-import { LoginProps } from "./types";
 
-const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
+const Login = () => {
     const [name, setName] = useState("");
     const dispatch = useDispatch();
 
@@ -18,7 +17,6 @@ const Login: React.FC<LoginProps> = ({ setIsLogin }) => {
         dispatch(addPlayer({ name, id }));
         // Set session storage
         sessionStorage.setItem("id", id);
-        setIsLogin(true);
     };
 
     return (
